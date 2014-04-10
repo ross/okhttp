@@ -36,7 +36,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import okio.BufferedSink;
 import okio.BufferedSource;
-import okio.OkBuffer;
+import okio.Buffer;
 import okio.Okio;
 
 /**
@@ -657,7 +657,7 @@ public final class DiskLruCache implements Closeable {
   }
 
   private static String inputStreamToString(InputStream in) throws IOException {
-    OkBuffer buffer = Util.readFully(Okio.source(in));
+    Buffer buffer = Util.readFully(Okio.source(in));
     return buffer.readUtf8(buffer.size());
   }
 
